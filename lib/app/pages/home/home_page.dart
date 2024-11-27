@@ -1,8 +1,5 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:teste_be_talent/app/ui/styles/colors_app.dart';
-import 'package:teste_be_talent/app/ui/styles/text_styles.dart';
 import 'package:teste_be_talent/app/widgets/header.dart';
 import 'package:teste_be_talent/app/widgets/search_employees.dart';
 import 'package:teste_be_talent/app/widgets/table_employees.dart';

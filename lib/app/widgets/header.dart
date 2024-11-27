@@ -37,8 +37,8 @@ class Header extends StatelessWidget {
                     ),
                   ),
                   Positioned(
-                    left: 26,
-                    bottom: 22,
+                    left: 24,
+                    bottom: 25,
                     child: Container(
                       padding: const EdgeInsets.all(2),
                       decoration: BoxDecoration(
