@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:teste_be_talent/app/data/exception/not_found_exceptions.dart';
 import 'package:teste_be_talent/app/data/http/http_client_employee.dart';
 import 'package:teste_be_talent/app/models/employee_model.dart';
@@ -12,14 +11,14 @@ class EmployeeRepositoryImpl implements EmployeeRepository {
 
   @override
   Future<List<EmployeeModel>> getEmployees() async {
-    final response = await client.get(url: 'http://localhost:3000/employees');
+    final response = await client.get(url: 'http://192.168.3.9:3000/employees');
 
     if (response.statusCode == 200) {
       final List<EmployeeModel> employees = [];
       final body = jsonDecode(response.body);
       print(response.body);
 
-      body['employees'].map((item) {
+      body.map((item) {
         final EmployeeModel employee = EmployeeModel.fromMap(item);
         employees.add(employee);
       }).toList();

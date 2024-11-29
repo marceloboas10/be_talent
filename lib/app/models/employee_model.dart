@@ -23,4 +23,6 @@ class EmployeeModel {
         phone: map['phone'],
         image: map['image']);
   }
+
+  
 }

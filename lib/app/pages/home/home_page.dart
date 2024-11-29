@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:teste_be_talent/app/data/http/http_client_employee_impl.dart';
+import 'package:teste_be_talent/app/repositories/employee_repository_impl.dart';
+import 'package:teste_be_talent/app/store/employee_store.dart';
 import 'package:teste_be_talent/app/ui/styles/colors_app.dart';
 import 'package:teste_be_talent/app/widgets/header.dart';
 import 'package:teste_be_talent/app/widgets/search_employees.dart';
@@ -19,14 +22,27 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: ColorsApp.instance.white,
       body: const SafeArea(
         child: SingleChildScrollView(
-          child: Column(children: [
-            Header(),
-            SearchEmployees(),
-            TableHeader(),
-            TableEmployees(),
-          ]),
+          child: Column(
+            children: [
+              Header(),
+              SearchEmployees(),
+              TableHeader(),
+              TableEmployees(),
+            ],
+          ),
         ),
       ),
     );
+
+    // const SafeArea(
+    //   child: SingleChildScrollView(
+    //     child: Column(children: [
+    //       Header(),
+    //       SearchEmployees(),
+    //       TableHeader(),
+    //       TableEmployees(),
+    //     ],),
+    //   ),
+    // ),
   }
 }
