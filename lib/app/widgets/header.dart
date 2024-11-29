@@ -62,7 +62,7 @@ class Header extends StatelessWidget {
             height: 22,
           ),
           Text(
-            'Funcionário',
+            'Funcionários',
             style: TextStyles.instance.healding1,
           )
         ],

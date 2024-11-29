@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:teste_be_talent/app/data/exception/not_found_exceptions.dart';
+import 'package:teste_be_talent/app/core/exception/not_found_exceptions.dart';
 import 'package:teste_be_talent/app/models/employee_model.dart';
 import 'package:teste_be_talent/app/repositories/employee_repository.dart';
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:teste_be_talent/app/core/domain/formatter_string_value.dart';
 import 'package:teste_be_talent/app/data/http/http_client_employee_impl.dart';
 import 'package:teste_be_talent/app/repositories/employee_repository_impl.dart';
 import 'package:teste_be_talent/app/store/employee_store.dart';
@@ -17,6 +18,8 @@ class _TableEmployeesState extends State<TableEmployees> {
   final EmployeeStore store = EmployeeStore(
       repository: EmployeeRepositoryImpl(client: HttpClientEmployeeImpl()));
 
+  final FormatterStringValue formatterString = FormatterStringValue();
+
   @override
   void initState() {
     super.initState();
@@ -29,13 +32,19 @@ class _TableEmployeesState extends State<TableEmployees> {
       animation: Listenable.merge([store.isLoading, store.error, store.state]),
       builder: (context, index) {
         if (store.isLoading.value) {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(
+              heightFactor: 5, child: CircularProgressIndicator());
         } else if (store.error.value.isNotEmpty) {
-          return Center(
-            child: Text(store.error.value),
+          return Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Center(
+              heightFactor: 5,
+              child: Text(store.error.value),
+            ),
           );
         } else if (store.state.value.isEmpty) {
           return const Center(
+            heightFactor: 5,
             child: Text("nenhum item na lista!"),
           );
         }
@@ -56,12 +65,20 @@ class _TableEmployeesState extends State<TableEmployees> {
                     itemCount: store.state.value.length,
                     itemBuilder: (context, index) {
                       return ExpansionTile(
+                        collapsedIconColor: ColorsApp.instance.bluePrimary,
                         backgroundColor: ColorsApp.instance.white,
                         title: Text(
                           store.state.value[index].name,
                           style: TextStyles.instance.healding3,
                         ),
-                        leading: const Icon(Icons.person),
+                        leading: ClipOval(
+                          child: Image.network(
+                            store.state.value[index].image,
+                            height: 34,
+                            width: 34,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
                         children: [
                           Column(
                             children: [
@@ -70,13 +87,12 @@ class _TableEmployeesState extends State<TableEmployees> {
                                   value: store.state.value[index].role),
                               TableRowWidget(
                                   title: 'Data de admissão',
-                                  value: store.state.value[index].admissionDate
-                                      .toIso8601String()
-                                      .trim()
-                                      .substring(0, 10)),
+                                  value: formatterString.formatDate(
+                                      store.state.value[index].admissionDate)),
                               TableRowWidget(
                                   title: 'Telefone',
-                                  value: store.state.value[index].phone),
+                                  value: formatterString.formatPhoneNumber(
+                                      store.state.value[index].phone)),
                             ],
                           ),
                         ],
