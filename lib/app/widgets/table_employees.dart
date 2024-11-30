@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:teste_be_talent/app/core/domain/formatter_string_value.dart';
-import 'package:teste_be_talent/app/data/http/http_client_employee_impl.dart';
-import 'package:teste_be_talent/app/repositories/employee_repository_impl.dart';
 import 'package:teste_be_talent/app/store/employee_store.dart';
 import 'package:teste_be_talent/app/ui/styles/colors_app.dart';
 import 'package:teste_be_talent/app/ui/styles/text_styles.dart';
 import 'package:teste_be_talent/app/widgets/table_row_widget.dart';
 
 class TableEmployees extends StatefulWidget {
-  TableEmployees({super.key, required this.store});
+ const TableEmployees({super.key, required this.store});
 
   final EmployeeStore store;
 
@@ -51,70 +49,57 @@ class _TableEmployeesState extends State<TableEmployees> {
               return AnimatedBuilder(
                   animation: widget.store.filteredEmployees,
                   builder: (contex, index) {
-                    return SafeArea(
-                      child: SingleChildScrollView(
-                        child: Container(
-                          margin: const EdgeInsets.only(left: 8, right: 8),
-                          height: MediaQuery.of(context).size.height * 0.6,
-                          decoration: BoxDecoration(
-                            border: Border.fromBorderSide(
-                                BorderSide(color: ColorsApp.instance.gray10)),
-                          ),
-                          child: ListView.separated(
-                            shrinkWrap: true,
-                            separatorBuilder: (context, index) =>
-                                const Divider(),
-                            itemCount:
-                                widget.store.filteredEmployees.value.length,
-                            itemBuilder: (context, index) {
-                              print(
-                                  'LISTA: ${widget.store.filteredEmployees.value[index]}');
-
-                              return ExpansionTile(
-                                collapsedIconColor:
-                                    ColorsApp.instance.bluePrimary,
-                                backgroundColor: ColorsApp.instance.white,
-                                title: Text(
-                                  widget.store.filteredEmployees.value[index]
-                                      .name,
-                                  style: TextStyles.instance.healding3,
-                                ),
-                                leading: ClipOval(
-                                  child: Image.network(
-                                    widget.store.filteredEmployees.value[index]
-                                        .image,
-                                    height: 34,
-                                    width: 34,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
+                    return Container(
+                      margin: const EdgeInsets.only(left: 8, right: 8),
+                      decoration: BoxDecoration(
+                        border: Border.fromBorderSide(
+                            BorderSide(color: ColorsApp.instance.gray10)),
+                      ),
+                      child: ListView.separated(
+                        shrinkWrap: true,
+                        separatorBuilder: (context, index) => const Divider(),
+                        itemCount: widget.store.filteredEmployees.value.length,
+                        itemBuilder: (context, index) {
+                          return ExpansionTile(
+                            collapsedIconColor: ColorsApp.instance.bluePrimary,
+                            backgroundColor: ColorsApp.instance.white,
+                            title: Text(
+                              widget.store.filteredEmployees.value[index].name,
+                              style: TextStyles.instance.healding3,
+                            ),
+                            leading: ClipOval(
+                              child: Image.network(
+                                widget
+                                    .store.filteredEmployees.value[index].image,
+                                height: 34,
+                                width: 34,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            children: [
+                              Column(
                                 children: [
-                                  Column(
-                                    children: [
-                                      TableRowWidget(
-                                          title: 'Cargo',
-                                          value: widget.store.filteredEmployees
-                                              .value[index].role),
-                                      TableRowWidget(
-                                          title: 'Data de admissão',
-                                          value: formatterString.formatDate(
-                                              widget.store.filteredEmployees
-                                                  .value[index].admissionDate)),
-                                      TableRowWidget(
-                                          title: 'Telefone',
-                                          value: formatterString
-                                              .formatPhoneNumber(widget
-                                                  .store
-                                                  .filteredEmployees
-                                                  .value[index]
-                                                  .phone)),
-                                    ],
-                                  ),
+                                  TableRowWidget(
+                                      title: 'Cargo',
+                                      value: widget.store.filteredEmployees
+                                          .value[index].role),
+                                  TableRowWidget(
+                                      title: 'Data de admissão',
+                                      value: formatterString.formatDate(widget
+                                          .store
+                                          .filteredEmployees
+                                          .value[index]
+                                          .admissionDate)),
+                                  TableRowWidget(
+                                      title: 'Telefone',
+                                      value: formatterString.formatPhoneNumber(
+                                          widget.store.filteredEmployees
+                                              .value[index].phone)),
                                 ],
-                              );
-                            },
-                          ),
-                        ),
+                              ),
+                            ],
+                          );
+                        },
                       ),
                     );
                   });

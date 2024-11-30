@@ -16,6 +16,7 @@ class EmployeeRepositoryImpl implements EmployeeRepository {
     if (response.statusCode == 200) {
       final List<EmployeeModel> employees = [];
       final body = jsonDecode(response.body);
+      print(response.body);
 
       body.map((item) {
         final EmployeeModel employee = EmployeeModel.fromMap(item);

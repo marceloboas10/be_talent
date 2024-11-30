@@ -40,7 +40,7 @@ class EmployeeStore {
 
   void filterEmployess(String data) {
     _timer?.cancel();
-    _timer = Timer(const Duration(milliseconds: 500), () async {
+    _timer = Timer(const Duration(milliseconds: 800), () async {
       String dataLowerCase = data.toLowerCase();
       filteredEmployees.value = listEmployees.value.where((element) {
         String lowerCaseName = element.name.toLowerCase();

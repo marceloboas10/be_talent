@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:teste_be_talent/app/pages/home/splash_page.dart';
+import 'package:teste_be_talent/app/pages/splash/splash_page.dart';
 
 void main() {
   runApp(const BeTalent());

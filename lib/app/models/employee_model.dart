@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 class EmployeeModel {
   final String id;
   final String name;
@@ -17,12 +19,12 @@ class EmployeeModel {
   factory EmployeeModel.fromMap(Map<String, dynamic> map) {
     return EmployeeModel(
         id: map['id'],
-        name: map['name'],
-        role: map['job'],
+        name:
+            map['name'] != null ? utf8.decode(map['name'].runes.toList()) : '',
+        role:
+            map['role'] != null ? utf8.decode(map['role'].runes.toList()) : '',
         admissionDate: DateTime.parse(map['admission_date']),
         phone: map['phone'],
         image: map['image']);
   }
-
-  
 }
