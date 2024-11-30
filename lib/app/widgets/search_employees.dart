@@ -3,13 +3,15 @@ import 'package:teste_be_talent/app/ui/styles/colors_app.dart';
 import 'package:teste_be_talent/app/ui/styles/text_styles.dart';
 
 class SearchEmployees extends StatelessWidget {
-  const SearchEmployees({super.key});
+  const SearchEmployees({super.key, this.onChanged});
+  final Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 16, right: 16, top: 12, bottom: 12),
       child: SearchBar(
+        onChanged: onChanged,
         backgroundColor: WidgetStatePropertyAll(ColorsApp.instance.gray5),
         constraints: const BoxConstraints(minHeight: 48),
         leading: Icon(
