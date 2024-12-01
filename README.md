@@ -1,6 +1,6 @@
 # Flutter: Teste Técnico Mobile BeTalent
 
-Projeto desenvolvido para teste técnico em Flutter, onde o objetivo é consumir uma API utilizando o json-server e exibir os dados foto, nome, cargo, data de admissão e telefone. 
+Projeto desenvolvido para teste técnico em Flutter, onde o objetivo é consumir uma API utilizando o json-server e exibir os dados de uma Json e exibir: foto, nome, cargo, data de admissão e telefone. 
 
 ### Tópicos abordados no projeto:
 
