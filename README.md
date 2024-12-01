@@ -1,7 +1,5 @@
 # Flutter: Teste Técnico Mobile BeTalent
 
-## Implemente o gerenciador de estados MobX em seus projetos
-
 Projeto desenvolvido para teste técnico em Flutter, onde o objetivo é consumir uma API utilizando o json-server e exibir os dados foto, nome, cargo, data de admissão e telefone. 
 
 ### Tópicos abordados no projeto:
