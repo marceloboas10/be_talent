@@ -1,16 +1,32 @@
-# teste_be_talent
+# Flutter: Teste Técnico Mobile BeTalent
 
-A new Flutter project.
+## Implemente o gerenciador de estados MobX em seus projetos
 
-## Getting Started
+Projeto desenvolvido para teste técnico em Flutter, onde o objetivo é consumir uma API utilizando o json-server e exibir os dados foto, nome, cargo, data de admissão e telefone. 
 
-This project is a starting point for a Flutter application.
+### Tópicos abordados no projeto:
 
-A few resources to get you started if this is your first Flutter project:
+- Consumo de API
+- Utilização do json-server
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🛠️ Abrir e rodar o projeto
+
+Aqui vem um passo a passo para abrir e rodar o projeto.
+
+Acesso aos dados da API simulada
+Para ter acesso aos dados que alimentarão o projeto, faça o seguinte:
+
+caso você não tenha, instale o pacote json-server;
+clone este repositório do GitHub em sua máquina: https://github.com/BeMobile/desafio-mobile;
+entre na pasta do projeto, em sua máquina, e, por meio da linha de comando, execute o comando json-server --watch db.json, para consumir a API simulada;
+inicie a estrutura e o desenvolvimento do projeto.
+É necessário deixar o json-server rodando no terminal para que os dados sejam visualizados no projeto.
+
+Caso você tenha problemas com o json-server, tente rodá-lo com npx json-server db.json ou com yarn json-server <path>/db.json, em que <path> é o caminho completo até o diretório em que o arquivo db.json está localizado.
+
+
+- **Open an Existing Project** (ou alguma opção similar)
+- Procure o local onde o projeto está e o selecione (Caso o projeto seja baixado via zip, é necessário extraí-lo antes de procurá-lo)
+- Por fim clique em OK
+- Depois basta rodar o comando `flutter run` na pasta do projeto
