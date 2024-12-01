@@ -14,14 +14,14 @@ Projeto desenvolvido para teste técnico em Flutter, onde o objetivo é consumir
 
 Aqui vem um passo a passo para abrir e rodar o projeto.
 
-#Acesso aos dados da API simulada
+# Acesso aos dados da API simulada
 
 Para ter acesso aos dados que alimentarão o projeto, faça o seguinte:
 
-Caso você não tenha, instale o pacote json-server;
-Clone este repositório do GitHub em sua máquina: https://github.com/BeMobile/desafio-mobile;
-Cntre na pasta do projeto, em sua máquina, e, por meio da linha de comando, execute o comando json-server --watch db.json, para consumir a API simulada;
-Inicie a estrutura e o desenvolvimento do projeto.
+- Caso você não tenha, instale o pacote json-server;
+- Clone este repositório do GitHub em sua máquina: https://github.com/BeMobile/desafio-mobile;
+- Cntre na pasta do projeto, em sua máquina, e, por meio da linha de comando, execute o comando json-server --watch db.json, para consumir a API simulada;
+- Inicie a estrutura e o desenvolvimento do projeto.
 
 É necessário deixar o json-server rodando no terminal para que os dados sejam visualizados no projeto.
 
